@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@nmfu-gbc.com'),
+        'name' => env('MAIL_FROM_NAME', 'NMFU Admin'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME','postmaster@sandbox28208c766fb049b9a260df9d78cfedb6.mailgun.org'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD', '1673b2ef7637d978ba03e2e80557e5ec-c1fe131e-4a95b013'),
 
     /*
     |--------------------------------------------------------------------------

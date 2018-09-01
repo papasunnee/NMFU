@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/users', function(){
+    return 'sunday' ;
+});
+
+
 Route::get('/{vue?}', function() {
     return view('layouts.master');
 })->where('vue', '[\/\w\.-]*');
