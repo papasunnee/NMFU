@@ -133,9 +133,13 @@ export default {
       this.form
         .post("api/users")
         .then(({ data }) => {
+          $("#addNew").modal("hide");
           this.$Progress.finish();
           this.fetctUsers();
-          this.$toasted.show("New User Successfully Added").goAway(3000);
+          toast({
+            type: "success",
+            title: "New User Added Successfully"
+          });
         })
         .catch(({ error }) => {
           this.$Progress.fail();
