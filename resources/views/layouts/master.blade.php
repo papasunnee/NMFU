@@ -175,7 +175,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </router-link>
           </li>
-          <li class="nav-item has-treeview ">
+          <li class="nav-item has-treeview red">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cog green"></i>
               <p>
@@ -205,12 +205,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </router-link>
           </li>
           <li class="nav-item">
-            {{-- <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-power-off"></i>
-              <p>
-                Logout
-              </p>
-            </a> --}}
             <a class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
@@ -312,7 +306,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- /.col-md-6 -->
         </div> --}}
         <!-- /.row -->
-        <router-view :user="{{ json_encode(Auth::user()) }}">
+        <router-view :auth_user="{{ json_encode(Auth::user()) }}">
         </router-view>
         <vue-progress-bar></vue-progress-bar>
       </div><!-- /.container-fluid -->

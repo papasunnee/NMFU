@@ -1,11 +1,13 @@
+import DashboardComponent from './components/DashboardComponent'
+import ProfileComponent from './components/ProfileComponent'
+import MembersComponent from './components/MembersComponent'
+import StudentsComponent from './components/StudentsComponent'
 
-
-
-let routes = [
-    { path: '/home', component: require('./components/DashboardComponent') },
-    { path: '/profile', component: require('./components/ProfileComponent') },
-    { path: '/members', component: require('./components/MembersComponent') },
-    { path: '/students', component: require('./components/StudentsComponent') },
+const routes = [
+    { path: '/home', component: DashboardComponent },
+    { path: '/profile', component: ProfileComponent },
+    { path: '/members', component: MembersComponent },
+    { path: '/students', component: StudentsComponent },
   ]
 
 export default routes ;

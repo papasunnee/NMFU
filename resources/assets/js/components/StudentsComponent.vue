@@ -4,7 +4,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Users</h3>
+                <h3 class="card-title">Unit Students</h3>
 
                 <div class="card-tools">
                     <button class="btn btn-success" data-toggle="modal" data-target="#addNew">Add New
@@ -26,8 +26,8 @@
                     <th>Registration Date</th>
                     <th>Modify</th>
                   </tr>
-                  <tr v-for="user in users" :key="user.id">
-                    <td>{{user.id}}</td>
+                  <tr v-for="(user , index ) in users" :key="user.id">
+                    <td>{{++index}}</td>
                     <td><strong>{{user.name | uppercase}}</strong></td>
                     <td>{{user.email | lowercase}}</td>
                     <td><span class="tag tag-success">{{user.type | capitalize}}</span></td>
@@ -79,9 +79,8 @@
                             <select v-model="form.type" name="type" id="type"
                                 class="form-control" :class="{ 'is-invalid': form.errors.has('type') }">
                                 <option value="">Select User Role</option>
-                                <option value="admin">Admin</option>
-                                <option value="user">Standard User</option>
-                                <option value="author">Author</option>
+                                <option value="user">User</option>
+                                <option value="student">Student</option>
                             </select>
                             <has-error :form="form" field="type"></has-error>
                         </div>

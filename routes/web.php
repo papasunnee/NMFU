@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -23,6 +23,6 @@ Route::get('/test', function() {
     return Auth::user();
 });
 
-Route::get('/{vue?}', function() {
+Route::get('/{vue_capture?}', function () {
     return view('layouts.master');
-})->where('vue', '[\/\w\.-]*');
+   })->where('vue_capture', '(members|students|profile)')->middleware('auth');

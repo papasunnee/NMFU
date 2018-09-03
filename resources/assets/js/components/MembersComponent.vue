@@ -4,9 +4,9 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Users</h3>
+                <h3 class="card-title">Unit Members</h3>
 
-                <div class="card-tools">
+                <div class="card-tools" v-show="authUserType()">
                     <button class="btn btn-success" data-toggle="modal" data-target="#addNew">Add New
                         <i class="fas fa-user-plus fa-fw"></i>
                     </button>
@@ -24,14 +24,17 @@
                     <th>Email</th>
                     <th>Type</th>
                     <th>Registration Date</th>
-                    <th>Modify</th>
+                    <span v-show="authUserType()">
+                        <th>Modify</th>
+                    </span>
                   </tr>
-                  <tr v-for="user in users" :key="user.id">
-                    <td>{{user.id}}</td>
+                  <tr v-for="(user , index ) in users" :key="user.id">
+                    <td>{{++index}}</td>
                     <td><strong>{{user.name | uppercase}}</strong></td>
                     <td>{{user.email | lowercase}}</td>
                     <td><span class="tag tag-success">{{user.type | capitalize}}</span></td>
                     <td><span class="tag tag-success">{{user.created_at | date}}</span></td>
+                    <span v-show="authUserType()">
                     <td>
                         <a href="#">
                             <i class="fa fa-edit blue"></i>
@@ -41,6 +44,7 @@
                             <i class="fa fa-trash red"></i>
                         </a>
                     </td>
+                    </span>
                   </tr>
                 </tbody></table>
               </div>
@@ -81,7 +85,6 @@
                                 <option value="">Select User Role</option>
                                 <option value="admin">Admin</option>
                                 <option value="user">Standard User</option>
-                                <option value="author">Author</option>
                             </select>
                             <has-error :form="form" field="type"></has-error>
                         </div>
@@ -104,7 +107,7 @@
 
 <script>
 export default {
-  props: ["auth_user_id"],
+  props: ["auth_user"],
   data() {
     return {
       loading: false,
@@ -145,6 +148,9 @@ export default {
           this.$Progress.fail();
           console.log(error);
         });
+    },
+    authUserType() {
+      return this.auth_user.type == "admin";
     }
   },
   created() {

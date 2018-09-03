@@ -41413,7 +41413,6 @@ window.toast = toast;
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('example-component', __webpack_require__(181));
 
 var app = new Vue({
     el: '#app',
@@ -67624,9 +67623,20 @@ if (inBrowser && window.Vue) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_DashboardComponent__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_DashboardComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_DashboardComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_ProfileComponent__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_ProfileComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_ProfileComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_MembersComponent__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_MembersComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_MembersComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_StudentsComponent__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_StudentsComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_StudentsComponent__);
 
 
-var routes = [{ path: '/home', component: __webpack_require__(171) }, { path: '/profile', component: __webpack_require__(174) }, { path: '/members', component: __webpack_require__(201) }, { path: '/students', component: __webpack_require__(204) }];
+
+
+
+var routes = [{ path: '/home', component: __WEBPACK_IMPORTED_MODULE_0__components_DashboardComponent___default.a }, { path: '/profile', component: __WEBPACK_IMPORTED_MODULE_1__components_ProfileComponent___default.a }, { path: '/members', component: __WEBPACK_IMPORTED_MODULE_2__components_MembersComponent___default.a }, { path: '/students', component: __WEBPACK_IMPORTED_MODULE_3__components_StudentsComponent___default.a }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
 
@@ -71575,125 +71585,9 @@ if (typeof window !== 'undefined' && window.Sweetalert2){  window.swal = window.
 "            transform: rotate(360deg); } }");
 
 /***/ }),
-/* 181 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(182)
-/* template */
-var __vue_template__ = __webpack_require__(183)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
-  } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 182 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 183 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
-  }
-}
-
-/***/ }),
+/* 181 */,
+/* 182 */,
+/* 183 */,
 /* 184 */
 /***/ (function(module, exports) {
 
@@ -71872,9 +71766,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["auth_user_id"],
+  props: ["auth_user"],
   data: function data() {
     return {
       loading: false,
@@ -71924,6 +71821,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         _this2.$Progress.fail();
         console.log(error);
       });
+    },
+    authUserType: function authUserType() {
+      return this.auth_user.type == "admin";
     }
   },
   created: function created() {
@@ -71943,7 +71843,25 @@ var render = function() {
     _c("div", { staticClass: "row mt-5" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "card-header" }, [
+            _c("h3", { staticClass: "card-title" }, [_vm._v("Unit Members")]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.authUserType(),
+                    expression: "authUserType()"
+                  }
+                ],
+                staticClass: "card-tools"
+              },
+              [_vm._m(0)]
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -71968,12 +71886,25 @@ var render = function() {
                           _vm._v(" "),
                           _c("th", [_vm._v("Registration Date")]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Modify")])
+                          _c(
+                            "span",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.authUserType(),
+                                  expression: "authUserType()"
+                                }
+                              ]
+                            },
+                            [_c("th", [_vm._v("Modify")])]
+                          )
                         ]),
                         _vm._v(" "),
-                        _vm._l(_vm.users, function(user) {
+                        _vm._l(_vm.users, function(user, index) {
                           return _c("tr", { key: user.id }, [
-                            _c("td", [_vm._v(_vm._s(user.id))]),
+                            _c("td", [_vm._v(_vm._s(++index))]),
                             _vm._v(" "),
                             _c("td", [
                               _c("strong", [
@@ -71997,17 +71928,32 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _c("td", [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _c("i", { staticClass: "fa fa-edit blue" })
-                              ]),
-                              _vm._v(
-                                "\n                    /\n                    "
-                              ),
-                              _c("a", { attrs: { href: "#" } }, [
-                                _c("i", { staticClass: "fa fa-trash red" })
-                              ])
-                            ])
+                            _c(
+                              "span",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.authUserType(),
+                                    expression: "authUserType()"
+                                  }
+                                ]
+                              },
+                              [
+                                _c("td", [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _c("i", { staticClass: "fa fa-edit blue" })
+                                  ]),
+                                  _vm._v(
+                                    "\n                    /\n                    "
+                                  ),
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _c("i", { staticClass: "fa fa-trash red" })
+                                  ])
+                                ])
+                              ]
+                            )
                           ])
                         })
                       ],
@@ -72228,10 +72174,6 @@ var render = function() {
                             _vm._v(" "),
                             _c("option", { attrs: { value: "user" } }, [
                               _vm._v("Standard User")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "author" } }, [
-                              _vm._v("Author")
                             ])
                           ]
                         ),
@@ -72303,23 +72245,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Users")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-tools" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success",
-            attrs: { "data-toggle": "modal", "data-target": "#addNew" }
-          },
-          [
-            _vm._v("Add New\n                    "),
-            _c("i", { staticClass: "fas fa-user-plus fa-fw" })
-          ]
-        )
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-success",
+        attrs: { "data-toggle": "modal", "data-target": "#addNew" }
+      },
+      [
+        _vm._v("Add New\n                    "),
+        _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -72531,7 +72467,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth_user_id"],
@@ -72631,9 +72566,9 @@ var render = function() {
                           _c("th", [_vm._v("Modify")])
                         ]),
                         _vm._v(" "),
-                        _vm._l(_vm.users, function(user) {
+                        _vm._l(_vm.users, function(user, index) {
                           return _c("tr", { key: user.id }, [
-                            _c("td", [_vm._v(_vm._s(user.id))]),
+                            _c("td", [_vm._v(_vm._s(++index))]),
                             _vm._v(" "),
                             _c("td", [
                               _c("strong", [
@@ -72882,16 +72817,12 @@ var render = function() {
                               _vm._v("Select User Role")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "admin" } }, [
-                              _vm._v("Admin")
-                            ]),
-                            _vm._v(" "),
                             _c("option", { attrs: { value: "user" } }, [
-                              _vm._v("Standard User")
+                              _vm._v("User")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "author" } }, [
-                              _vm._v("Author")
+                            _c("option", { attrs: { value: "student" } }, [
+                              _vm._v("Student")
                             ])
                           ]
                         ),
@@ -72964,7 +72895,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Users")]),
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Unit Students")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-tools" }, [
         _c(
