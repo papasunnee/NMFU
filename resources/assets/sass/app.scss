@@ -12,37 +12,6 @@
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
-.navbar-laravel a{
-  color:#fff;
-}
 .navbar-laravel {
-  background: -moz-linear-gradient(
-    309deg,
-    #667eea 0%,
-    #7159b6 71%,
-    #764ba2 100%
-  );
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right bottom,
-    color-stop(0%, #667eea),
-    color-stop(71%, #7159b6),
-    color-stop(100%, #764ba2)
-  );
-  background: -webkit-linear-gradient(
-    309deg,
-    #667eea 0%,
-    #7159b6 71%,
-    #764ba2 100%
-  );
-  background: -o-linear-gradient(309deg, #667eea 0%, #7159b6 71%, #764ba2 100%);
-  background: -ms-linear-gradient(
-    309deg,
-    #667eea 0%,
-    #7159b6 71%,
-    #764ba2 100%
-  );
-  background: linear-gradient(141deg, #667eea 0%, #7159b6 71%, #764ba2 100%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
