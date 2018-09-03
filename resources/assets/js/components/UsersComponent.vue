@@ -104,6 +104,7 @@
 
 <script>
 export default {
+  props: ["auth_user_id"],
   data() {
     return {
       loading: false,
@@ -124,7 +125,6 @@ export default {
       axios.get("api/users").then(({ data, data: { data: userdata } }) => {
         this.users = userdata;
         this.loading = false;
-        console.log(this.users);
       });
     },
     createUser() {
@@ -149,7 +149,6 @@ export default {
   },
   created() {
     this.fetctUsers();
-    console.log("Component mounted.");
   }
 };
 </script>

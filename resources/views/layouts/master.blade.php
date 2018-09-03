@@ -308,7 +308,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- /.col-md-6 -->
         </div> --}}
         <!-- /.row -->
-        <router-view>
+        <router-view :user="{{ json_encode(Auth::user()) }}">
         </router-view>
         <vue-progress-bar></vue-progress-bar>
       </div><!-- /.container-fluid -->

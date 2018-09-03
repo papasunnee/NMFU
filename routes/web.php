@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/test', function() {
+    return Auth::user();
+});
 
 Route::get('/{vue?}', function() {
     return view('layouts.master');
