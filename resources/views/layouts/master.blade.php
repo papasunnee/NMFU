@@ -14,6 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Home | NMFU</title>
 
   <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/mystyle.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
@@ -249,7 +250,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        {{-- <div class="row">
+        <div class="row">
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
@@ -305,7 +306,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <!-- /.col-md-6 -->
-        </div> --}}
+        </div>
         <!-- /.row -->
         <router-view></router-view>
         <vue-progress-bar></vue-progress-bar>

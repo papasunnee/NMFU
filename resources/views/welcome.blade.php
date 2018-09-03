@@ -5,30 +5,37 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>NMFU::GBC</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800,900" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
                 height: 100vh;
                 margin: 0;
             }
 
             .full-height {
                 height: 100vh;
+                color: #fff ;
+                background: -moz-linear-gradient(309deg, #667eea 0%, #7159B6 71%, #764ba2 100%); /* ff3.6+ */
+                background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #667eea), color-stop(71%, #7159B6), color-stop(100%, #764ba2)); /* safari4+,chrome */
+                background: -webkit-linear-gradient(309deg, #667eea 0%, #7159B6 71%, #764ba2 100%); /* safari5.1+,chrome10+ */
+                background: -o-linear-gradient(309deg, #667eea 0%, #7159B6 71%, #764ba2 100%); /* opera 11.10+ */
+                background: -ms-linear-gradient(309deg, #667eea 0%, #7159B6 71%, #764ba2 100%); /* ie10+ */
+                background: linear-gradient(141deg, #667eea 0%, #7159B6 71%, #764ba2 100%); /* w3c */
             }
 
             .flex-center {
                 align-items: center;
                 display: flex;
-                justify-content: center;
+                *justify-content: center;
             }
 
             .position-ref {
@@ -42,21 +49,26 @@
             }
 
             .content {
-                text-align: center;
+                margin-left: 50px ;
             }
 
             .title {
-                font-size: 84px;
+                font-size: 60px;
+                font-weight: 800;
             }
 
             .links > a {
-                color: #636b6f;
-                padding: 0 25px;
+                color: #fff;
+                padding-right:25px;
                 font-size: 12px;
-                font-weight: 600;
+                font-weight: 400;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                transition: all linear 200ms ;
+            }
+            .links > a:hover {
+                color: #636b6f;
             }
 
             .m-b-md {
@@ -79,15 +91,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    N.M.F.U.
+                    New Members' Fellowship Unit
+                    <hr/>
                 </div>
                 <div class="m-b-md">
-                    New Members' Fellowship Unit
+                    Gloryland Baptist Church, FHA Lugbe, Abuja.
                 </div>
 
                 <div class="links">
                     <a href="#">About NMFU</a>
-                    <a href="#">News</a>
+                    <a href="#">Information</a>
                     <a href="#">Contact</a>
                 </div>
             </div>
