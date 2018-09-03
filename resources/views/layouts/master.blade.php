@@ -185,9 +185,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/users" class="nav-link">
+                <router-link to="/members" class="nav-link">
                   <i class="fa fa-users nav-icon indigo"></i>
-                  <p>Users</p>
+                  <p>Unit Members</p>
+                </router-link>
+                <router-link to="/students" class="nav-link">
+                  <i class="fa fa-users nav-icon indigo"></i>
+                  <p>Students</p>
                 </router-link>
               </li>
             </ul>
