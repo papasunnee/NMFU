@@ -5,9 +5,8 @@ namespace App\Http\Controllers\API;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::where('type' , ['admin', 'user'])->latest()->paginate(10) ;
+        return User::where('type' , 'student')->latest()->paginate(10) ;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -27,20 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users',
-            'password' => 'required|string|min:6',
-        ]);
-        return User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => $request['password'],
-            'bio' => $request['bio'],
-            'photo' => $request['photo'] ,
-            'type' => $request['type'],
-            'password' => Hash::make($request['password']),
-        ]);
+        //
     }
 
     /**
@@ -50,6 +46,17 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }

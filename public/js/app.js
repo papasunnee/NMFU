@@ -72469,7 +72469,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["auth_user_id"],
+  props: ["auth_user"],
   data: function data() {
     return {
       loading: false,
@@ -72490,7 +72490,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       this.loading = true;
-      axios.get("api/users").then(function (_ref) {
+      axios.get("api/students").then(function (_ref) {
         var data = _ref.data,
             userdata = _ref.data.data;
 
@@ -72519,9 +72519,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         _this2.$Progress.fail();
         console.log(error);
       });
+    },
+    authUserType: function authUserType() {
+      return this.auth_user.type == "student";
     }
   },
   created: function created() {
+    this.authUserType();
     this.fetctUsers();
   }
 });
@@ -72538,7 +72542,13 @@ var render = function() {
     _c("div", { staticClass: "row mt-5" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "card-header" }, [
+            _c("h3", { staticClass: "card-title" }, [_vm._v("Unit Students")]),
+            _vm._v(" "),
+            _vm.authUserType()
+              ? _c("div", { staticClass: "card-tools" }, [_vm._m(0)])
+              : _vm._e()
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -72894,23 +72904,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Unit Students")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-tools" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success",
-            attrs: { "data-toggle": "modal", "data-target": "#addNew" }
-          },
-          [
-            _vm._v("Add New\n                    "),
-            _c("i", { staticClass: "fas fa-user-plus fa-fw" })
-          ]
-        )
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-success",
+        attrs: { "data-toggle": "modal", "data-target": "#addNew" }
+      },
+      [
+        _vm._v("Add New\n                    "),
+        _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+      ]
+    )
   },
   function() {
     var _vm = this

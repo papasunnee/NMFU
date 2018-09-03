@@ -6,7 +6,7 @@
               <div class="card-header">
                 <h3 class="card-title">Unit Students</h3>
 
-                <div class="card-tools">
+                <div class="card-tools" v-if="authUserType()">
                     <button class="btn btn-success" data-toggle="modal" data-target="#addNew">Add New
                         <i class="fas fa-user-plus fa-fw"></i>
                     </button>
@@ -103,7 +103,7 @@
 
 <script>
 export default {
-  props: ["auth_user_id"],
+  props: ["auth_user"],
   data() {
     return {
       loading: false,
@@ -121,7 +121,7 @@ export default {
   methods: {
     fetctUsers() {
       this.loading = true;
-      axios.get("api/users").then(({ data, data: { data: userdata } }) => {
+      axios.get("api/students").then(({ data, data: { data: userdata } }) => {
         this.users = userdata;
         this.loading = false;
       });
@@ -144,9 +144,13 @@ export default {
           this.$Progress.fail();
           console.log(error);
         });
+    },
+    authUserType() {
+      return this.auth_user.type == "student";
     }
   },
   created() {
+    this.authUserType();
     this.fetctUsers();
   }
 };
