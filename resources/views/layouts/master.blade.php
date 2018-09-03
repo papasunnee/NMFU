@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <router-link to="/dashboard" class="nav-link">
+            <router-link to="/home" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt blue"></i>
               <p>
                 Dashboard
@@ -250,7 +250,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
@@ -306,9 +306,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <!-- /.col-md-6 -->
-        </div>
+        </div> --}}
         <!-- /.row -->
-        <router-view></router-view>
+        <router-view>
+        </router-view>
         <vue-progress-bar></vue-progress-bar>
       </div><!-- /.container-fluid -->
     </div>

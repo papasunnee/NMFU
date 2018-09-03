@@ -67626,7 +67626,7 @@ if (inBrowser && window.Vue) {
 "use strict";
 
 
-var routes = [{ path: '/dashboard', component: __webpack_require__(171) }, { path: '/profile', component: __webpack_require__(174) }, { path: '/users', component: __webpack_require__(177) }];
+var routes = [{ path: '/home', component: __webpack_require__(171) }, { path: '/profile', component: __webpack_require__(174) }, { path: '/users', component: __webpack_require__(177) }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
 
