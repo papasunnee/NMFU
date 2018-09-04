@@ -15,13 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify' => true ]);
+Auth::routes(['verify' => false ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', function() {
-    return Auth::user();
-});
 
 Route::get('/{vue_capture?}', function () {
     return view('layouts.master');
