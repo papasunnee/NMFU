@@ -13,6 +13,7 @@ window.Vue = require('vue')
 window.Form = Form
 
 
+
 import { Form, HasError, AlertError } from 'vform'
 import VueProgressBar from 'vue-progressbar'
 import VueRouter from 'vue-router'
@@ -53,6 +54,8 @@ window.toast = toast
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+window.Fire = new Vue()
 
 const app = new Vue({
     el: '#app',

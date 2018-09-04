@@ -7,7 +7,7 @@
                 <h3 class="card-title">Unit Students</h3>
 
                 <div class="card-tools" v-if="authUserType()">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#addNew">Add New
+                    <button class="btn btn-success" data-toggle="modal" data-target="#addNew">{{ modalLabel}}
                         <i class="fas fa-user-plus fa-fw"></i>
                     </button>
                 </div>
@@ -33,7 +33,7 @@
                     <td><span class="tag tag-success">{{user.type | capitalize}}</span></td>
                     <td><span class="tag tag-success">{{user.created_at | date}}</span></td>
                     <td>
-                        <a href="#">
+                        <a href="#" @submit.prevent="updateUser">
                             <i class="fa fa-edit blue"></i>
                         </a>
                         /
@@ -106,6 +106,7 @@ export default {
   props: ["auth_user"],
   data() {
     return {
+      modalLabel: "Add New Student",
       loading: false,
       users: {},
       form: new Form({
@@ -146,7 +147,16 @@ export default {
         });
     },
     authUserType() {
-      return this.auth_user.type == "student";
+      return this.auth_user.type == "admin" || this.auth_user.type == "user";
+    },
+    updateUser(id) {
+      this.loading = true;
+      axios
+        .get("api/students/" + id)
+        .then(({ data, data: { data: userdata } }) => {
+          this.users = userdata;
+          this.loading = false;
+        });
     }
   },
   created() {

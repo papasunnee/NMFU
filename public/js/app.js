@@ -41414,6 +41414,8 @@ window.toast = toast;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.Fire = new Vue();
+
 var app = new Vue({
     el: '#app',
     router: router
@@ -71769,6 +71771,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth_user"],
@@ -71798,6 +71801,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         _this.users = userdata;
         _this.loading = false;
+        console.log(data.current_page);
       });
     },
     createUser: function createUser() {
@@ -71824,10 +71828,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     authUserType: function authUserType() {
       return this.auth_user.type == "admin";
+    },
+    deleteUser: function deleteUser(userID) {
+      var _this3 = this;
+
+      swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(function (result) {
+        if (result.value) {
+          //Send request to server for processing
+          _this3.form.delete("api/users/" + userID).then(function (data) {
+            Fire.$emit("ReloadUser");
+            toast({
+              type: "success",
+              title: "User successfully deleted"
+            });
+          }).catch(function (error) {
+            console.log(error);
+            swal({
+              type: "error",
+              title: "Oops...",
+              text: "Something went wrong!"
+              //   footer: "<a href>Why do I have this issue?</a>"
+            });
+          });
+        }
+      });
     }
   },
   created: function created() {
+    var _this4 = this;
+
     this.fetctUsers();
+    Fire.$on("ReloadUser", function () {
+      _this4.fetctUsers();
+    });
   }
 });
 
@@ -71948,9 +71989,23 @@ var render = function() {
                                   _vm._v(
                                     "\n                    /\n                    "
                                   ),
-                                  _c("a", { attrs: { href: "#" } }, [
-                                    _c("i", { staticClass: "fa fa-trash red" })
-                                  ])
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: { href: "#" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          _vm.deleteUser(user.id)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fa fa-trash red"
+                                      })
+                                    ]
+                                  )
                                 ])
                               ]
                             )
@@ -72472,6 +72527,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["auth_user"],
   data: function data() {
     return {
+      modalLabel: "Add New Student",
       loading: false,
       users: {},
       form: new Form({
@@ -72521,7 +72577,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     authUserType: function authUserType() {
-      return this.auth_user.type == "student";
+      return this.auth_user.type == "admin" || this.auth_user.type == "user";
+    },
+    updateUser: function updateUser(id) {
+      var _this3 = this;
+
+      this.loading = true;
+      axios.get("api/students/" + id).then(function (_ref4) {
+        var data = _ref4.data,
+            userdata = _ref4.data.data;
+
+        _this3.users = userdata;
+        _this3.loading = false;
+      });
     }
   },
   created: function created() {
@@ -72546,7 +72614,22 @@ var render = function() {
             _c("h3", { staticClass: "card-title" }, [_vm._v("Unit Students")]),
             _vm._v(" "),
             _vm.authUserType()
-              ? _c("div", { staticClass: "card-tools" }, [_vm._m(0)])
+              ? _c("div", { staticClass: "card-tools" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: {
+                        "data-toggle": "modal",
+                        "data-target": "#addNew"
+                      }
+                    },
+                    [
+                      _vm._v(_vm._s(_vm.modalLabel) + "\n                    "),
+                      _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+                    ]
+                  )
+                ])
               : _vm._e()
           ]),
           _vm._v(" "),
@@ -72603,9 +72686,19 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("td", [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _c("i", { staticClass: "fa fa-edit blue" })
-                              ]),
+                              _c(
+                                "a",
+                                {
+                                  attrs: { href: "#" },
+                                  on: {
+                                    submit: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.updateUser($event)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-edit blue" })]
+                              ),
                               _vm._v(
                                 "\n                    /\n                    "
                               ),
@@ -72647,7 +72740,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "form",
@@ -72889,7 +72982,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ]
               )
             ])
@@ -72900,22 +72993,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-success",
-        attrs: { "data-toggle": "modal", "data-target": "#addNew" }
-      },
-      [
-        _vm._v("Add New\n                    "),
-        _c("i", { staticClass: "fas fa-user-plus fa-fw" })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

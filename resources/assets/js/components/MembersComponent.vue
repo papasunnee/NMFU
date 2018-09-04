@@ -36,11 +36,12 @@
                     <td><span class="tag tag-success">{{user.created_at | date}}</span></td>
                     <span v-show="authUserType()">
                     <td>
+                        
                         <a href="#">
                             <i class="fa fa-edit blue"></i>
                         </a>
                         /
-                        <a href="#">
+                        <a href="#"  @click.prevent="deleteUser(user.id)">
                             <i class="fa fa-trash red"></i>
                         </a>
                     </td>
@@ -128,6 +129,7 @@ export default {
       axios.get("api/users").then(({ data, data: { data: userdata } }) => {
         this.users = userdata;
         this.loading = false;
+        console.log(data.current_page);
       });
     },
     createUser() {
@@ -151,10 +153,46 @@ export default {
     },
     authUserType() {
       return this.auth_user.type == "admin";
+    },
+    deleteUser(userID) {
+      swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(result => {
+        if (result.value) {
+          //Send request to server for processing
+          this.form
+            .delete("api/users/" + userID)
+            .then(data => {
+              Fire.$emit("ReloadUser");
+              toast({
+                type: "success",
+                title: "User successfully deleted"
+              });
+            })
+            .catch(error => {
+              console.log(error);
+              swal({
+                type: "error",
+                title: "Oops...",
+                text: "Something went wrong!"
+                //   footer: "<a href>Why do I have this issue?</a>"
+              });
+            });
+        }
+      });
     }
   },
   created() {
     this.fetctUsers();
+    Fire.$on("ReloadUser", () => {
+      this.fetctUsers();
+    });
   }
 };
 </script>

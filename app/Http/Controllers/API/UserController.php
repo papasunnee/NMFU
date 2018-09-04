@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::where('type' , ['admin', 'user'])->latest()->paginate(10) ;
+        return User::where('type','admin')->orWhere('type', 'user')->latest()->paginate(10) ;
     }
 
     /**
@@ -74,6 +75,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd(auth()->user()) ;
+        if(Auth::user()->id == $id){
+            return ['message' => 'Cant delete yourself'] ;
+        }
+        $user = User::findOrFail($id) ;
+        $user->delete() ;
+        return ['message' => 'User successfully deleted'] ;
     }
 }
