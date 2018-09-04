@@ -10,7 +10,6 @@ require('./filters');
 
 window.Vue = require('vue')
 //import Vue from 'vue'
-window.Form = Form
 
 
 
@@ -20,6 +19,7 @@ import VueRouter from 'vue-router'
 import routes from './routes'
 import swal from 'sweetalert2'
 window.swal = swal
+window.Form = Form
 
 
 

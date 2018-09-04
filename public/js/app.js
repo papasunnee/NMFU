@@ -41375,7 +41375,7 @@ __webpack_require__(163);
 
 window.Vue = __webpack_require__(15);
 //import Vue from 'vue'
-window.Form = __WEBPACK_IMPORTED_MODULE_0_vform__["Form"];
+
 
 
 
@@ -41383,6 +41383,7 @@ window.Form = __WEBPACK_IMPORTED_MODULE_0_vform__["Form"];
 
 
 window.swal = __WEBPACK_IMPORTED_MODULE_4_sweetalert2___default.a;
+window.Form = __WEBPACK_IMPORTED_MODULE_0_vform__["Form"];
 
 Vue.component(__WEBPACK_IMPORTED_MODULE_0_vform__["HasError"].name, __WEBPACK_IMPORTED_MODULE_0_vform__["HasError"]);
 Vue.component(__WEBPACK_IMPORTED_MODULE_0_vform__["AlertError"].name, __WEBPACK_IMPORTED_MODULE_0_vform__["AlertError"]);
