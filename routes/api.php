@@ -18,12 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->get('/student', function (Request $request) {
+// Route::middleware('auth:api')->get('/student', function (Request $request) {
 
-    return $request->user();
-});
+//     return $request->user();
+// });
+
+// Route::group(['middleware' => 'auth:api'], function(){
+// });
 
 Route::apiResources([
     'users' => 'API\UserController',
-    'students' => 'API\StudentController'
+    'students' => 'API\StudentController',
 ]) ;
