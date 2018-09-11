@@ -33,11 +33,15 @@
                     <td><span class="tag tag-success">{{user.type | capitalize}}</span></td>
                     <td><span class="tag tag-success">{{user.created_at | date}}</span></td>
                     <td>
-                        <a href="#" @click.prevent="editModal(user)">
+                        <a href="#" @click.prevent="editModal(user)" title="Quick Edit">
                             <i class="fa fa-edit blue"></i>
                         </a>
                         /
-                        <a href="#" @click.prevent="deleteStudent(user.id)">
+                        <a href="#" @click.prevent="userProfile(user)" title="View">
+                            <i class="fas fa-eye teal"></i>
+                        </a>
+                        /
+                        <a href="#" @click.prevent="deleteStudent(user.id)" title="Delete">
                             <i class="fa fa-trash red"></i>
                         </a>
                     </td>
@@ -211,6 +215,9 @@ export default {
             });
         }
       });
+    },
+    userProfile() {
+      console.log("demo");
     }
   },
   created() {
